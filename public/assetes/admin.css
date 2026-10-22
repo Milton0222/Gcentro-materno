@@ -97,7 +97,7 @@ body.admin-body textarea:focus-visible {
     font-size: 22px;
 }
 
-.admin-brand > span:last-child {
+.admin-brand>span:last-child {
     display: grid;
     gap: 3px;
 }
@@ -156,7 +156,7 @@ body.admin-body textarea:focus-visible {
     padding: 0 3px 12px;
 }
 
-.sidebar-navigation > .nav-section-label {
+.sidebar-navigation>.nav-section-label {
     margin: 0 10px 9px;
 }
 
@@ -179,8 +179,8 @@ body.admin-body textarea:focus-visible {
     transition: color .18s ease, background .18s ease;
 }
 
-.sidebar-link > i:first-child,
-.sidebar-group-toggle > i:first-child {
+.sidebar-link>i:first-child,
+.sidebar-group-toggle>i:first-child {
     width: 19px;
     color: #82969a;
     font-size: 18px;
@@ -198,7 +198,7 @@ body.admin-body textarea:focus-visible {
     color: var(--admin-green-dark);
 }
 
-.sidebar-link.is-active > i:first-child {
+.sidebar-link.is-active>i:first-child {
     color: var(--admin-green-dark);
 }
 
@@ -213,7 +213,7 @@ body.admin-body textarea:focus-visible {
     color: var(--admin-ink);
 }
 
-.sidebar-group.is-expanded .sidebar-group-toggle > i:first-child {
+.sidebar-group.is-expanded .sidebar-group-toggle>i:first-child {
     color: var(--admin-green);
 }
 
@@ -374,7 +374,7 @@ body.admin-body textarea:focus-visible {
     background: #fbfdfd;
 }
 
-.topbar-search > i {
+.topbar-search>i {
     color: #90a3a3;
     font-size: 17px;
 }
@@ -471,7 +471,7 @@ body.admin-body textarea:focus-visible {
     border-bottom: 1px solid #eef3f1;
 }
 
-.notification-heading > span {
+.notification-heading>span {
     display: grid;
     gap: 4px;
 }
@@ -486,7 +486,7 @@ body.admin-body textarea:focus-visible {
     font-size: 10px;
 }
 
-.notification-heading > i {
+.notification-heading>i {
     color: var(--admin-green);
     font-size: 22px;
 }
@@ -511,7 +511,7 @@ body.admin-body textarea:focus-visible {
     font-size: 18px;
 }
 
-.notification-item > span:last-child {
+.notification-item>span:last-child {
     display: grid;
     min-width: 0;
     gap: 4px;
@@ -977,7 +977,7 @@ body.admin-body textarea:focus-visible {
     text-align: center;
 }
 
-.empty-state > span {
+.empty-state>span {
     display: grid;
     width: 49px;
     height: 49px;
@@ -1030,8 +1030,8 @@ body.admin-body textarea:focus-visible {
     display: grid;
 }
 
-.quick-actions-list > a,
-.quick-actions-list > button {
+.quick-actions-list>a,
+.quick-actions-list>button {
     display: flex;
     width: 100%;
     min-width: 0;
@@ -1070,8 +1070,8 @@ body.admin-body textarea:focus-visible {
     color: #e79a68;
 }
 
-.quick-actions-list > a > span:nth-child(2),
-.quick-actions-list > button > span:nth-child(2) {
+.quick-actions-list>a>span:nth-child(2),
+.quick-actions-list>button>span:nth-child(2) {
     display: grid;
     min-width: 0;
     flex: 1;
@@ -1100,8 +1100,8 @@ body.admin-body textarea:focus-visible {
     transition: transform .18s ease;
 }
 
-.quick-actions-list > a:hover .quick-chevron,
-.quick-actions-list > button:hover .quick-chevron {
+.quick-actions-list>a:hover .quick-chevron,
+.quick-actions-list>button:hover .quick-chevron {
     color: var(--admin-green);
     transform: translateX(3px);
 }
@@ -1154,7 +1154,7 @@ body.admin-body textarea:focus-visible {
     margin-bottom: 17px;
 }
 
-.grupo-card1 .cardu > .card1 {
+.grupo-card1 .cardu>.card1 {
     display: grid;
     min-height: 94px;
     align-content: space-between;
@@ -1241,7 +1241,7 @@ body.admin-body textarea:focus-visible {
     margin: 0;
 }
 
-.corpo .search form > div {
+.corpo .search form>div {
     position: relative;
     display: flex;
     align-items: center;
@@ -1280,7 +1280,7 @@ body.admin-body textarea:focus-visible {
     cursor: pointer;
 }
 
-.corpo .search form > div:first-child a,
+.corpo .search form>div:first-child a,
 .corpo .search a {
     display: inline-flex;
     min-height: 37px;
@@ -1296,7 +1296,7 @@ body.admin-body textarea:focus-visible {
     transition: background .18s ease;
 }
 
-.corpo .search form > div:first-child a:hover,
+.corpo .search form>div:first-child a:hover,
 .corpo .search a:hover {
     background: var(--admin-green-dark);
 }
@@ -1311,7 +1311,7 @@ body.admin-body textarea:focus-visible {
     scrollbar-width: thin;
 }
 
-.table-responsive > table,
+.table-responsive>table,
 .table-responsive table {
     width: 100%;
     min-width: 590px;
@@ -1381,7 +1381,7 @@ body.admin-body textarea:focus-visible {
     padding: 4px;
 }
 
-.group-input > .row,
+.group-input>.row,
 .table-responsive .row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
@@ -1390,7 +1390,7 @@ body.admin-body textarea:focus-visible {
 }
 
 .group-input .col,
-.table-responsive .row > .col {
+.table-responsive .row>.col {
     display: grid;
     align-content: start;
     gap: 14px;
@@ -1398,8 +1398,8 @@ body.admin-body textarea:focus-visible {
     padding: 0;
 }
 
-.group-input .col > div,
-.table-responsive form .group-input > div {
+.group-input .col>div,
+.table-responsive form .group-input>div {
     min-width: 0;
 }
 
@@ -1578,7 +1578,7 @@ body.admin-body textarea:focus-visible {
     display: none;
 }
 
-.report-period-fields > div {
+.report-period-fields>div {
     display: grid;
     gap: 7px;
 }
@@ -1699,8 +1699,8 @@ body.admin-body textarea:focus-visible {
         font-size: 20px;
     }
 
-    .breadcrumb > span,
-    .breadcrumb > i {
+    .breadcrumb>span,
+    .breadcrumb>i {
         display: none;
     }
 
@@ -1721,7 +1721,7 @@ body.admin-body textarea:focus-visible {
         background: transparent;
     }
 
-    .topbar-search > i {
+    .topbar-search>i {
         font-size: 20px;
     }
 
@@ -1820,7 +1820,7 @@ body.admin-body textarea:focus-visible {
         justify-content: space-between;
     }
 
-    .corpo .search form > div:last-child {
+    .corpo .search form>div:last-child {
         flex: 1;
         max-width: 320px;
     }
@@ -1919,7 +1919,7 @@ body.admin-body textarea:focus-visible {
         gap: 9px;
     }
 
-    .grupo-card1 .cardu > .card1 {
+    .grupo-card1 .cardu>.card1 {
         min-height: 84px;
         padding: 12px;
     }
@@ -1928,23 +1928,24 @@ body.admin-body textarea:focus-visible {
         font-size: 21px;
     }
 
-    .group-input > .row,
+    .group-input>.row,
     .table-responsive .row {
         grid-template-columns: 1fr;
     }
 
-    .corpo .search form > div:first-child a {
+    .corpo .search form>div:first-child a {
         min-height: 36px;
         padding: 0 10px;
     }
 
-    .table-responsive > table,
+    .table-responsive>table,
     .table-responsive table {
         min-width: 520px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     body.admin-body *,
     body.admin-body *::before,
     body.admin-body *::after {
@@ -1986,7 +1987,7 @@ body.admin-body textarea:focus-visible {
     font-size: 11px;
 }
 
-.management-heading > .button {
+.management-heading>.button {
     flex: 0 0 auto;
 }
 
@@ -2002,8 +2003,8 @@ body.admin-body textarea:focus-visible {
     background: #fbfdfc;
 }
 
-.entity-filters > input,
-.entity-filters > select,
+.entity-filters>input,
+.entity-filters>select,
 .filter-search {
     width: auto;
     min-width: 130px;
@@ -2017,8 +2018,8 @@ body.admin-body textarea:focus-visible {
     font-size: 10px;
 }
 
-.entity-filters > input:focus,
-.entity-filters > select:focus,
+.entity-filters>input:focus,
+.entity-filters>select:focus,
 .filter-search:focus-within {
     border-color: #8fd2b4;
     box-shadow: 0 0 0 3px rgba(35, 170, 122, .09);
@@ -2050,7 +2051,7 @@ body.admin-body textarea:focus-visible {
 }
 
 .filter-search input::placeholder,
-.entity-filters > input::placeholder {
+.entity-filters>input::placeholder {
     color: #9aabaa;
 }
 
@@ -2149,7 +2150,7 @@ body.admin-body textarea:focus-visible {
     text-align: center;
 }
 
-.table-empty > i {
+.table-empty>i {
     margin-bottom: 4px;
     color: #7dbda0;
     font-size: 25px;
@@ -2180,12 +2181,12 @@ body.admin-body textarea:focus-visible {
     justify-content: flex-end;
 }
 
-.table-pagination nav > div:first-child {
+.table-pagination nav>div:first-child {
     display: none;
 }
 
-.table-pagination nav > div:last-child > span,
-.table-pagination nav > div:last-child > a {
+.table-pagination nav>div:last-child>span,
+.table-pagination nav>div:last-child>a {
     display: inline-flex;
     min-width: 32px;
     height: 32px;
@@ -2241,7 +2242,7 @@ body.admin-body textarea:focus-visible {
     padding: 22px 24px 17px;
 }
 
-.modal-header > div > p {
+.modal-header>div>p {
     margin: 5px 0 0;
     color: var(--admin-muted);
     font-size: 10px;
@@ -2268,7 +2269,7 @@ body.admin-body textarea:focus-visible {
     gap: 15px;
 }
 
-.form-grid > label {
+.form-grid>label {
     display: grid;
     min-width: 0;
     align-content: start;
@@ -2366,7 +2367,7 @@ body.admin-body textarea:focus-visible {
         font-size: 19px;
     }
 
-    .management-heading > .button {
+    .management-heading>.button {
         min-height: 38px;
         padding: 0 10px;
         font-size: 9px;
@@ -2376,8 +2377,8 @@ body.admin-body textarea:focus-visible {
         gap: 7px;
     }
 
-    .entity-filters > input,
-    .entity-filters > select {
+    .entity-filters>input,
+    .entity-filters>select {
         min-width: 105px;
         flex: 1 1 120px;
     }
@@ -2401,11 +2402,11 @@ body.admin-body textarea:focus-visible {
         flex-direction: column;
     }
 
-    .management-heading > .button {
+    .management-heading>.button {
         width: 100%;
     }
 
-    .entity-filters > .button {
+    .entity-filters>.button {
         flex: 1 1 auto;
     }
 

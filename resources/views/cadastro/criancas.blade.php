@@ -1,45 +1,5 @@
 <x-app-layout>
-@section('cartao')
-     <div class="cardu">
-          <div class="card1">
-            <p class="total">+{{$pacientec}}</p>
-            <span>
-              <h3>Paciente</h3>
-
-              <a href="{{route('paciente.storeShow')}}">Registar</a>
-            </span>
-
-
-          </div>
-          <div class="card1">
-            <p class="total">+{{$consultac}}</p>
-            <span>
-              <h3>Consultas</h3>
-
-              <a href="{{route('consulta.index')}}"><i class='bx bxs-low-vision'></i></a>
-
-            </span>
-          </div>
-          <div class="card1">
-            <p class="total">+{{$funcionarioc}}</p>
-            <span>
-              <h3>Funcionarios</h3>
-              <a href="{{route('funcionario.index')}}"><i class='bx bxs-low-vision'></i></a>
-
-            </span>
-          </div>
-          <div class="card1">
-            <p class="total">+{{$partoc}}</p>
-            <span>
-              <h3>Partos</h3>
-              <a href="{{route('parto.index')}}"><i class='bx bxs-low-vision'></i></a>
-
-            </span>
-          </div>
-
-
-        </div>
-     @endsection
+    
   @section('corpo')
 
 

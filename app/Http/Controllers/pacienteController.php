@@ -53,9 +53,6 @@ class pacienteController extends Controller
             'genero' => $request->genero,
             'dataNascimento' => $request->nascimento,
             'morada' => $request->morada,
-            'saude' => $request->saude,
-            'tipoPaciente' => $request->tipo_paciente,
-            'estado' => $request->estado,
         ]);
 
         alert()->info($paciente['nome'], 'Registado, com sucesso.');

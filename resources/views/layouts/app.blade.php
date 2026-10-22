@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#f4faf8">
 
-    <title>{{ isset($title) ? $title.' · ' : '' }}{{ config('app.name', 'Centro Materno da Cambanda') }}</title>
+    <title>{{ isset($title) ? $title.' · ' : '' }}{{ config('app.name', 'SGI Cabanda') }}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800&display=swap" rel="stylesheet">
@@ -60,10 +60,10 @@
                 </button>
             </div>
 
-            <div class="sidebar-context">
+            <!--<div class="sidebar-context">
                 <span class="context-label">ESPAÇO DE TRABALHO</span>
                 <span class="context-name"><i class="bx bx-clinic" aria-hidden="true"></i> Gestão do centro</span>
-            </div>
+            </div>-->
 
             <nav class="sidebar-navigation">
                 <span class="nav-section-label">MENU PRINCIPAL</span>
@@ -77,17 +77,17 @@
                             <i class="bx bx-user" aria-hidden="true"></i><span>Pacientes</span><i class="bx bx-chevron-down group-chevron" aria-hidden="true"></i>
                         </button>
                         <div class="sidebar-submenu">
-                            <a class="{{ request()->routeIs('paciente.index', 'paciente.show') ? 'is-current' : '' }}" href="{{ route('paciente.index') }}">Lista de pacientes</a>
-                            <a href="{{ route('paciente.storeShow') }}">Registar paciente</a>
+                            <a class="{{ request()->routeIs('paciente.index', 'paciente.show') ? 'is-current' : '' }}" href="{{ route('paciente.index') }}">Gerir</a>
+                            <!--<a href="{{ route('paciente.storeShow') }}">Registar paciente</a>-->
                         </div>
                     </div>
 
                     <div class="sidebar-group {{ request()->routeIs('consulta.*') ? 'is-expanded' : '' }}">
                         <button class="sidebar-group-toggle" type="button" aria-expanded="{{ request()->routeIs('consulta.*') ? 'true' : 'false' }}">
-                            <i class="bx bx-calendar-heart" aria-hidden="true"></i><span>Consultas e triagem</span><i class="bx bx-chevron-down group-chevron" aria-hidden="true"></i>
+                            <i class="bx bx-calendar-heart" aria-hidden="true"></i><span>Consultas</span><i class="bx bx-chevron-down group-chevron" aria-hidden="true"></i>
                         </button>
                         <div class="sidebar-submenu">
-                            <a class="{{ request()->routeIs('consulta.index', 'consulta.show') ? 'is-current' : '' }}" href="{{ route('consulta.index') }}">Consultas</a>
+                            <a class="{{ request()->routeIs('consulta.index', 'consulta.show') ? 'is-current' : '' }}" href="{{ route('consulta.index') }}">Gerir</a>
                         </div>
                     </div>
 
@@ -103,10 +103,10 @@
 
                     <div class="sidebar-group {{ request()->routeIs('planeamento.*') ? 'is-expanded' : '' }}">
                         <button class="sidebar-group-toggle" type="button" aria-expanded="{{ request()->routeIs('planeamento.*') ? 'true' : 'false' }}">
-                            <i class="bx bx-heart-circle" aria-hidden="true"></i><span>Planeamento familiar</span><i class="bx bx-chevron-down group-chevron" aria-hidden="true"></i>
+                            <i class="bx bx-heart-circle" aria-hidden="true"></i><span>Planeamento</span><i class="bx bx-chevron-down group-chevron" aria-hidden="true"></i>
                         </button>
                         <div class="sidebar-submenu">
-                            <a class="{{ request()->routeIs('planeamento.index') ? 'is-current' : '' }}" href="{{ route('planeamento.index') }}">Registos de planeamento</a>
+                            <a class="{{ request()->routeIs('planeamento.index') ? 'is-current' : '' }}" href="{{ route('planeamento.index') }}">Gerir</a>
                         </div>
                     </div>
                 @endif
@@ -120,11 +120,11 @@
                 @if ($isAdmin)
                     <div class="sidebar-group {{ request()->routeIs('funcionario.*') ? 'is-expanded' : '' }}">
                         <button class="sidebar-group-toggle" type="button" aria-expanded="{{ request()->routeIs('funcionario.*') ? 'true' : 'false' }}">
-                            <i class="bx bx-id-card" aria-hidden="true"></i><span>Equipa e acessos</span><i class="bx bx-chevron-down group-chevron" aria-hidden="true"></i>
+                            <i class="bx bx-id-card" aria-hidden="true"></i><span>Definição</span><i class="bx bx-chevron-down group-chevron" aria-hidden="true"></i>
                         </button>
                         <div class="sidebar-submenu">
                             <a class="{{ request()->routeIs('funcionario.index', 'funcionario.search') ? 'is-current' : '' }}" href="{{ route('funcionario.index') }}">Utilizadores</a>
-                            <a href="{{ route('funcionario.create') }}">Adicionar utilizador</a>
+                            <!--<a href="{{ route('funcionario.create') }}">Adicionar utilizador</a>-->
                         </div>
                     </div>
                 @endif
@@ -132,11 +132,12 @@
 
             <div class="sidebar-bottom">
                 <div class="sidebar-help">
-                    <span class="help-icon"><i class="bx bx-heart" aria-hidden="true"></i></span>
-                    <strong>Cuidado que acompanha</strong>
-                    <small>Centro Materno da Cambanda</small>
+                   <!-- <span class="help-icon"><i class="bx bx-heart" aria-hidden="true"></i></span>
+                    <strong>SGI</strong>
+                    <small>Centro Materno da Cambanda</small>-->
+                    <a class="sidebar-home" href="{{ url('/') }}"><i class="bx bx-arrow-back" aria-hidden="true"></i> Voltar à página inicial</a>
                 </div>
-                <a class="sidebar-home" href="{{ url('/') }}"><i class="bx bx-arrow-back" aria-hidden="true"></i> Voltar à página inicial</a>
+                
             </div>
         </aside>
 

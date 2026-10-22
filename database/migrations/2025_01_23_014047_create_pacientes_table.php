@@ -17,10 +17,10 @@ return new class extends Migration
             $table->enum('genero',['F','M']);
             $table->date('dataNascimento');
             $table->string('morada',50)->nullable();
-            $table->integer('contacto')->nullable()->unique();
-            $table->string('tipoPaciente');
+            $table->string('contacto', 9)->nullable()->unique();
+            $table->string('tipoPaciente')->nullable();
             $table->string('estado')->nullable();
-            $table->string('saude');
+            $table->string('saude')->nullable(); 
             $table->timestamps();
         });
     }

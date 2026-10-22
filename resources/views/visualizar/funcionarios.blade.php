@@ -3,7 +3,7 @@
         <section class="corpo entity-management">
             <div class="management-heading">
                 <div><span class="management-kicker">ADMINISTRAÇÃO DO SISTEMA</span><h1>Equipa e utilizadores</h1><p>Consulte os utilizadores e os perfis de acesso do centro.</p></div>
-                <button class="button button-primary" type="button" data-bs-toggle="modal" data-bs-target="#user-create"><i class="bx bx-user-plus" aria-hidden="true"></i> Novo utilizador</button>
+                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#user-create"><i class="bx bx-user-plus" aria-hidden="true"></i> Novo utilizador</button>
             </div>
 
             <form class="entity-filters" action="{{ route('funcionario.index') }}" method="get">

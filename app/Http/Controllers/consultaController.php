@@ -7,6 +7,7 @@ use App\Models\pacientes;
 use App\Models\partos;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class consultaController extends Controller
 {
@@ -42,12 +43,16 @@ class consultaController extends Controller
     public function marcar(Request $request, $id)
     {
         //
+          if($id==0)
+               $id=$request->paciente_id;
+            
         if ($paciente = pacientes::find($id)) {
+             // dd($request->all(), date('H:i'));
             consultas::create([
                 'pacienteID' => $id,
-                'dataConsulta' => $request->dataConsulta,
-                'hora' => $request->hora,
-                'doutor' => $request->doutor,
+                'dataConsulta' => date('Y-m-d'),
+                'hora' => date('h:i'),
+                'doutor' => Auth::user()->name,
                 'tipoConsulta' => $request->tipoConsulta,
                 'valor' => 0,
                 ...$request->only([
@@ -66,7 +71,7 @@ class consultaController extends Controller
                 ]),
             ]);
 
-            alert()->info($paciente['nome'], 'Consulta marcada. consultar no painel consulta.');
+            alert()->info($paciente['nome'], 'Consulta registada. consultar no painel consulta.');
 
             return redirect()->route('consulta.index');
         } else {

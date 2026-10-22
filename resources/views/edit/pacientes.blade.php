@@ -1,295 +1,221 @@
 <x-app-layout>
-@section('cartao')
-     <div class="cardu">
-          <div class="card1">
-            <p class="total">+{{$pacientec}}</p>
-            <span>
-              <h3>Paciente</h3>
 
-              <a href="{{route('paciente.storeShow')}}">Registar</a>
-            </span>
-
-
-          </div>
-          <div class="card1">
-            <p class="total">+{{$consultac}}</p>
-            <span>
-              <h3>Consultas</h3>
-
-              <a href="{{route('consulta.index')}}"><i class='bx bxs-low-vision'></i></a>
-
-            </span>
-          </div>
-          <div class="card1">
-            <p class="total">+{{$funcionarioc}}</p>
-            <span>
-              <h3>Funcionarios</h3>
-              <a href="{{route('funcionario.index')}}"><i class='bx bxs-low-vision'></i></a>
-
-            </span>
-          </div>
-          <div class="card1">
-            <p class="total">+{{$partoc}}</p>
-            <span>
-              <h3>Partos</h3>
-              <a href="{{route('parto.index')}}"><i class='bx bxs-low-vision'></i></a>
-
-            </span>
-          </div>
-
-
-        </div>
-     @endsection
   @section('corpo')
   <div class="corpo">
     <div class="search">
 
-      <H3>Gerir paciente</H3>
+      <H3>Paciente: {{$paciente->nome}}</H3>
 
-      <div class="form">
-
-
-        <form action="" method="get" class="formSearch">
-          <div>
-            <a href="{{route('paciente.index')}}">Listar</a>
-          </div>
-          <div>
-
-            <input type="text" name="search" id="" required>
-            <button type="submit" class="btn-search"><i style="font-size:20px;" class="bx bx-search"></i></button>
-          </div>
-
-        </form>
-
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#marcar" title="Registar consulta">Consulta</button>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#parto" style="margin-right: 10px;" title="Registar parto">Parto</button>
+        <form action="{{route('paciente.destroy',$paciente->id)}}" onsubmit="return confirm(`Desejas apagar o paciente {{$paciente->nome}}`)" method="post"> @csrf @method('put') <button type="submit" class="btn btn-danger" data-bs-toggle="modal"><i class='bx bxs-coffee-togo'></i></button></form>
       </div>
-
-
     </div>
 
 
     <div class="table-responsive">
-      <table>
-        <form action="{{route('paciente.update',$paciente->id)}}" method="post">
-          @csrf
-          @method('put')
 
-          <div class="group-input">
+      <form action="{{route('paciente.update',$paciente->id)}}" method="post">
+        @csrf
+        @method('put')
 
-
-            <div class="row">
-              <div class="col">
-                <div>
-                  <label for="">Nome</label><br>
-                  <input type="text" name="nome" id="" class="formc" value="{{$paciente->nome}}" required placeholder="Informe o nome do paciente">
-                </div>
-                <div>
-                  <label for="">Morada</label><br>
-                  <input type="text" name="morada" id="" class="formc" value="{{$paciente->morada}}" required placeholder="Municipio/Bairro/Rua">
-                </div>
-                <div>
-                  <label for="">Contacto</label><br>
-                  <input type="number" name="contacto" id="" class="formc" value="{{$paciente->contacto}}" required placeholder="9xx xxx xxx">
-                </div>
-
+        <div class="form-control">
+          <div class="row">
+            <div class="col">
+              <div>
+                <label for="">Nome</label><br>
+                <input type="text" name="nome" id="" class="form-control" value="{{$paciente->nome}}" required placeholder="Informe o nome do paciente">
               </div>
-              <div class="col">
-                <div>
-                  <label for="">Data de nascimento</label><br>
-                  <input type="date" name="nascimento" id="" class="formc" required>
-                </div>
-                <div>
-                  <label for="">Genero</label><br>
-                  <select name="genero" id class="formc" required>
-                    <option selected value="{{$paciente->genero}}">{{$paciente->genero}}</option>
-                    <option value="F">Femenino</option>
-                    <option value="M">Masculino</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="">Tipo pacinte</label><br>
-                  <input type="text" name="tipo_paciente" id="" class="formc" value="{{$paciente->tipoPaciente}}" required placeholder="Informe o tipo de paciente">
-                </div>
-
+              <div>
+                <label for="">Morada</label><br>
+                <input type="text" name="morada" id="" class="form-control" value="{{$paciente->morada}}" required placeholder="Municipio/Bairro/Rua">
               </div>
-              <div class="col">
+            </div>
+            <div class="col">
+              <div>
+                <label for="">Data de nascimento</label><br>
+                <input type="date" name="nascimento" id="" value="{{$paciente->dataNascimento}}" class="form-control" required>
+              </div>
+              <div>
+                <label for="">Genero</label><br>
+                <select name="genero" id="" class="form-control" required>
+                  <option selected value="{{$paciente->genero}}">{{$paciente->genero}}</option>
+                  <option value="F">Femenino</option>
+                  <option value="M">Masculino</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
 
-                <div>
-                  <label for="">Estado</label><br>
-                  <input type="text" name="estado" id="" class="formc" value="{{$paciente->estado}}" placeholder="Informe o estado do paciente">
-                </div>
-                <div>
-                  <label for="">Saude</label><br>
-                  <input type="text" name="saude" id="" class="formc" value="{{$paciente->saude}}" placeholder=".....">
-                </div>
-
-                <div class="btng">
-                  <button type="submit"><i class='bx bxs-edit-alt'></i></button>
-                  <button type="button" class="btn-apagar" data-bs-toggle="modal" data-bs-target="#apagar"><i class='bx bxs-coffee-togo'></i></button>
-
-                  <button type="button" class="btn-consulta" data-bs-toggle="modal" data-bs-target="#marcar"><i class='bx bxs-edit'></i></button>
-                  <button type="button" class="btn-parto" data-bs-toggle="modal" data-bs-target="#parto">Parto</button>
-
-                </div>
-
+              <div>
+                <label for="">Estado</label><br>
+                <input type="text" name="estado" id="" class="form-control" value="{{$paciente->estado}}" placeholder="Informe o estado do paciente">
+              </div>
+              <div>
+                <label for="">Contacto</label><br>
+                <input type="number" name="contacto" id="" class="form-control" value="{{$paciente->contacto}}" required placeholder="9xx xxx xxx">
               </div>
 
             </div>
 
           </div>
-
-        </form>
-      </table>
-
-      <!-- Modal marcar consulta -->
-  <div class="modal fade" id="marcar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Marcar consulta do sr(a),{{$paciente->nome}}...</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+          <div>
+            <label for="">Ultima triagem de saude</label><br>
+            <textarea name="saude" class="form-control" rows="3">{{ $paciente->saude }}</textarea></label>
+          </div>
         </div>
-        <div class="modal-body">
-    
-          <form action="{{route('consulta.marcar',$paciente->id)}}" method="POST" class="form-control">
-            @csrf
-            @method('post')
+        <div class="modal-footer"><button class="button button-secondary" style="margin: 10px;" type="button" data-bs-dismiss="modal">Voltar ao painel pacientes</button><button class="button button-primary" type="submit"><i class='bx bxs-edit'></i>Alterar dados</button></div>
+      </form>
 
 
-            <div class="group-input">
+      <!-- Modal registar consulta -->
+      <div class="modal fade" id="marcar" tabindex="-1" aria-labelledby="patient-create-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-end">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div>
+                <h1> <span class="modal-kicker">Nova Consulta do paciente {{$paciente->nome}}</span></h1>
+                <h2 id="patient-create-title">Registar consulta</h2>
+                <p>Preencha os dados da triagem médica.</p>
+              </div><button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Fechar"><i class="bx bx-x" aria-hidden="true"></i></button>
+            </div>
 
-
+            <form action="{{route('consulta.marcar',$paciente->id)}}" method="POST" class="form-control" style="overflow: auto;">
+              @csrf
+              <div>
+                <label for="">Tipo de consulta Materna</label>
+                <select name="tipoConsulta" id="" required class="form-control">
+                  <option value="">--Selecionar--</option>
+                  <option value="Planeamento Familiar">Planeamento Familiar</option>
+                  <option value="Pré Natal">Pré Natal</option>
+                  <option value="Obstetrícia">Consulta de Obstetrícia</option>
+                  <option value="Pós Parto">Pós Parto</option>
+                </select>
+              </div>
+              <div>
+                <label for="">Queixa principal</label><br>
+                <textarea name="queixaPrincipal" required placeholder="De forma comum descreve oque apaciente sente." class="form-control"></textarea>
+              </div>
               <div class="row">
+
                 <div class="col">
                   <div>
-                    <label for="">Doutor/tecnico</label><br>
-                    <input type="text" name="doutor" id="" class="formc" required placeholder="Informe o nome do medico">
-                  </div>
-                  <div>
-                    <label for="">Data da consulta</label><br>
-                    <input type="date" name="dataConsulta" id="" class="formc">
-                  </div>
-                  <div>
-                    <label for="">Hora da consulta</label><br>
-                    <input type="time" name="hora" id="" class="formc" required placeholder="9xx xxx xxx">
-                  </div>
-                  <div>
-                     <label for="">Tipo da consulta</label>
-                     <input type="text" class="formc" name="tipoConsulta" required placeholder="Informe o tipo de consulta">
-                  </div>
-                  <div>
-                    <label for="">Queixa principal</label><br>
-                    <textarea name="queixaPrincipal" class="formc"></textarea>
-                  </div>
-                  <div>
                     <label for="">Pressão arterial</label><br>
-                    <input type="text" name="pressaoArterial" class="formc" placeholder="Ex.: 120/80 mmHg">
+                    <input type="text" name="pressaoArterial" required class="form-control" placeholder="Ex.: 120/80 mmHg">
                   </div>
                   <div>
                     <label for="">Frequência cardíaca (bpm)</label><br>
-                    <input type="number" name="frequenciaCardiaca" class="formc" min="0">
+                    <input type="number" name="frequenciaCardiaca" placeholder="Infome a frequeência cardíaca" class="form-control" min="0">
                   </div>
+                </div>
+                <div class="col">
                   <div>
                     <label for="">Frequência respiratória (rpm)</label><br>
-                    <input type="number" name="frequenciaRespiratoria" class="formc" min="0">
+                    <input type="number" name="frequenciaRespiratoria"  placeholder="Infome a frequência respiratória" class="form-control" min="0">
                   </div>
                   <div>
                     <label for="">Temperatura (°C)</label><br>
-                    <input type="number" name="temperatura" class="formc" min="0" step="0.1">
+                    <input type="number" name="temperatura" placeholder="Informe a temperaturaem garus" class="form-control" min="0" step="0.1">
                   </div>
+                </div>
+                <div class="col">
                   <div>
                     <label for="">Saturação de oxigénio (%)</label><br>
-                    <input type="number" name="saturacaoOxigenio" class="formc" min="0" max="100" step="0.1">
+                    <input type="number" name="saturacaoOxigenio" value="1" class="form-control" min="0" max="100" step="0.1">
                   </div>
                   <div>
                     <label for="">Peso (kg)</label><br>
-                    <input type="number" name="peso" class="formc" min="0" step="0.01">
+                    <input type="number" name="peso" required placeholder="Informe o peso da paciente" class="form-control" min="0" step="0.01">
                   </div>
+
+                  <div>
+                    <label for="">Classificação de risco</label><br>
+                    <input type="text" name="classificacaoRisco" placeholder="Informe a classificação de risco" class="form-control">
+                  </div>
+                </div>
+
+                <div class="col">
                   <div>
                     <label for="">Altura (m)</label><br>
-                    <input type="number" name="altura" class="formc" min="0" step="0.01">
+                    <input type="number" name="altura" value="1,70'" class="form-control" min="0" step="0.01">
                   </div>
                   <div>
                     <label for="">Idade gestacional (semanas)</label><br>
-                    <input type="number" name="idadeGestacionalSemanas" class="formc" min="0" max="45">
+                    <input type="number"  name="idadeGestacionalSemanas" class="form-control" min="0" max="45">
                   </div>
                   <div>
                     <label for="">Batimentos fetais (bpm)</label><br>
-                    <input type="number" name="batimentosFetais" class="formc" min="0">
+                    <input type="number"  name="batimentosFetais" class="form-control" min="0">
                   </div>
-                  <div>
-                    <label for="">Classificação de risco</label><br>
-                    <input type="text" name="classificacaoRisco" class="formc">
-                  </div>
-                  <div>
-                    <label for="">Observações da triagem</label><br>
-                    <textarea name="observacoesTriagem" class="formc"></textarea>
-                  </div>
-
                 </div>
-               
-              
 
               </div>
 
-            </div>
+              <div>
+                <label for="">Observações da triagem</label><br>
+                <textarea name="observacoesTriagem" required placeholder="De forma técnica descreve a tragem médica" class="form-control"></textarea>
+              </div>
 
-            <div class="modal-footer">
-              <button type="submit" class="btn-apagar">Salvar</button>
-            </div>
-          </form>
+              <div class="modal-footer"><button class="button button-secondary" type="button" data-bs-dismiss="modal">Cancelar</button><button class="button button-primary" type="submit">Guardar dados</button></div>
+            </form>
+          </div>
+
         </div>
-
       </div>
     </div>
-  </div>
-  <!-- Fim Modal -->
+    <!-- Fim Modal -->
 
 
-  <!-- Modal registar parto -->
-  <div class="modal fade" id="parto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Registar parto da paciente {{$paciente->nome}}...</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-        </div>
-        <div class="modal-body">
-    
-          <form action="{{route('parto.store',$paciente->id)}}" method="POST" class="form-control">
+    <!-- Modal registar parto -->
+    <div class="modal fade" id="parto" tabindex="-1" aria-labelledby="patient-create-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-end">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h1> <span class="modal-kicker">Novo parto da paciente {{$paciente->nome}}</span></h1>
+              <h2 id="patient-create-title">Registar parto</h2>
+              <p>Preencha os dados e clicar em salvar.</p>
+            </div><button class="modal-close" type="button" data-bs-dismiss="modal" aria-label="Fechar"><i class="bx bx-x" aria-hidden="true"></i></button>
+          </div>
+
+          <form action="{{route('parto.store',$paciente->id)}}" method="POST" class="form-control" style="overflow: auto;">
             @csrf
-            @method('post')
-
 
             <div class="group-input">
-
 
               <div class="row">
                 <div class="col">
                   <div>
-                    <label for="">Estado</label><br>
-                    <input type="text" name="estado" id="" class="formc" required placeholder="Informe o estado da paciente">
+                    <label for="">Estado clinico</label><br>
+                    <input type="text" name="estado" id="" class="form-control" required placeholder="Informe o quadro clinico da paciente">
                   </div>
                   <div>
                     <label for="">Tipo</label><br>
-                    <input type="text" name="tipo" id="" class="formc" placeholder="Informe o tipo de parto">
+                    <select name="tipo" id="" class="form-control">
+                      <option value="">--Selecionar--</option>
+                      <option value="Normal">Parto Normal</option>
+                      <option value="Natural">Parto Natural</option>
+                      <option value="Cesariana">Parto Cesariana</option>
+                      <option value="Humanizado">Parto Humanizado</option>
+                    </select>
                   </div>
                   <div>
                     <label for="">OBS</label><br>
-                    <textarea name="obs" id="" cols="30" rows="10" class="formt"></textarea>
+                    <textarea name="obs" id="" placeholder="Escreve de forma breve como o parto ocorreu." cols="30" rows="5" class="form-control"></textarea>
                   </div>
-                 
+
 
                 </div>
-               
-              
+
+
 
               </div>
 
             </div>
 
             <div class="modal-footer">
-              <button type="submit" class="btn-apagar">Salvar</button>
+              <div class="modal-footer"><button class="button button-secondary" type="button" data-bs-dismiss="modal">Cancelar</button><button class="button button-primary" type="submit">Salvar</button></div>
             </div>
           </form>
         </div>
@@ -298,36 +224,13 @@
     </div>
   </div>
   <!-- Fim Modal -->
-    </div>
+  </div>
 
   </div>
 
   @endsection
 
-  <!-- Modal apagar -->
-  <div class="modal fade" id="apagar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Apagando os dados de {{$paciente->nome}}...</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-        </div>
-        <div class="modal-body">
 
-          <form action="{{route('paciente.destroy',$paciente->id)}}" method="POST" class="form-control">
-            @csrf
-            @method('delete')
-            <p style="font-size: 20pt; text-align: center;">Desejas apagar os dados do paciente {{$paciente->nome}}?</p>
-            <div class="modal-footer">
-              <button type="submit" class="btn-apagar">Sim</button>
-            </div>
-          </form>
-        </div>
 
-      </div>
-    </div>
-  </div>
-  <!-- Fim Modal -->
 
-  
 </x-app-layout>

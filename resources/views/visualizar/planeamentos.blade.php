@@ -3,7 +3,7 @@
         <section class="corpo entity-management">
             <div class="management-heading">
                 <div><span class="management-kicker">SAÚDE E ACOMPANHAMENTO</span><h1>Planeamento familiar</h1><p>Consulte e registe os métodos de planeamento associados às pacientes.</p></div>
-                <button class="button button-primary" type="button" data-bs-toggle="modal" data-bs-target="#planning-create"><i class="bx bx-plus-circle" aria-hidden="true"></i> Novo registo</button>
+                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#planning-create"><i class="bx bx-plus-circle" aria-hidden="true"></i> Novo registo</button>
             </div>
 
             <form class="entity-filters" action="{{ route('planeamento.index') }}" method="get">

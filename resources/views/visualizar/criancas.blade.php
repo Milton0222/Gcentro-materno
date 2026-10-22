@@ -3,7 +3,7 @@
         <section class="corpo entity-management">
             <div class="management-heading">
                 <div><span class="management-kicker">SAÚDE INFANTIL</span><h1>Recém-nascidos</h1><p>Consulte e actualize os registos dos bebés nascidos no centro.</p></div>
-                <button class="button button-primary" type="button" data-bs-toggle="modal" data-bs-target="#newborn-create"><i class="bx bx-baby-carriage" aria-hidden="true"></i> Registar bebé</button>
+                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#newborn-create"><i class="bx bx-baby-carriage" aria-hidden="true"></i> Registar bebé</button>
             </div>
 
             <form class="entity-filters" action="{{ route('crianca.index') }}" method="get">
